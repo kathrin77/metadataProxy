@@ -1,0 +1,108 @@
+/* 
+    Stylesheet for Metadata Proxy
+    Author     : Kathrin Heim
+*/
+
+
+body {
+    width: 980px;
+    margin: auto;
+    background-color: lightgray;
+    font-family: Georgia;
+    text-align: center;
+
+}
+
+.logo {
+    background-image: url("https://www.oclc.org/content/dam/oclc/logos/worldcat/worldcat-logo.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-color: #66bfa1;
+    background-size: 80px;
+    height: 80px;    
+
+}
+
+.pagetitle {
+    font-family: Century Gothic,sans-serif;
+    font-size: 3em;
+    padding-top: 10px
+}
+
+
+
+.output, #myForm {
+    min-height: 50px;
+    margin: 15px 0px;
+    padding: 15px;
+    background-color: white;
+    overflow-y: auto;
+
+}
+
+.output {
+    visibility: hidden;
+    position: relative;
+    text-align: left;
+
+}
+
+.output, .legend, footer {
+    font-style: italic;
+    font-size: smaller;
+}
+
+.output:hover, #myForm:hover {
+    box-shadow: 5px 5px 7px grey;    
+}
+
+.isbn, .title, .author, .year, .publisher, .city {
+    font-weight: bold;
+    padding: .2em .2em; 
+    font-size:initial; 
+    font-style: normal;
+}
+
+.record {
+    font-style: normal;
+}
+
+.mediatype {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+}
+
+
+input {
+    padding: .2em .2em;
+    height: 40px;
+    
+}
+
+#submitbutton {
+    background-color: #66bfa1;
+    box-shadow: 5px 5px 7px grey;
+    font-weight: bold;
+    height: 50px;
+
+}
+
+
+footer {
+    
+    border-top: dotted black 3px;
+    padding: 5px;
+    margin-top: 10px;
+
+}
+
+.error {
+    color: darkred;
+    padding: 5px;
+}
+
+
+
+
+
