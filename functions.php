@@ -7,6 +7,12 @@ require_once './IsbnService.php';
 require_once './IsbnServiceJson.php';
 
 /**
+ * PHP functions for metadataProxy
+ *
+ * @author K.Heim
+ */
+
+/**
  * Prevalidates ISBN by removing whitespace, backslashes, special characters and hyphens.
  * @param String $string
  * @return String
@@ -91,7 +97,7 @@ function getMetadatafromOclc($isbn) {
 
 function insertMetadataintoDB($isbn, $metadata) {
     
-    //$metadata bereinigen: alle ' ersetzen mit UTF-8-Zeichen
+    //clear $metadata: replace ' with UTF-8-value
     $specialCharacter = array("'");
     $replaceCharacter = array("\xE2\x80\x99");
     $cleanedMetadata = str_replace($specialCharacter,$replaceCharacter, $metadata);

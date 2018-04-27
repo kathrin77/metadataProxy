@@ -5,6 +5,18 @@ require_once './IsbnService.php';
 require_once './IsbnServiceJson.php';
 require_once './My_MySQLi.php';
 
+/**
+ * requestHandler for metadataProxy:
+ * 
+ * The entered data is validated. If valid ISBN, the data is checked against local storage (mysql).
+ * If ISBN is stored locally, the local data is returend (JSON), otherwise, 
+ * data is searched on WorldCat through OCLC webservice.
+ * If found and valid data, it is stored locally and returned, otherwise, 
+ * the data status is returned only (invalidId if invalid ISBN, unknownID if ISBN not found on WorldCat).
+ *
+ * @author K.Heim
+ */
+
     //Prevalidate (stripslashes etc.)
     $prevalidatedIsbn = preValidate($_POST["isbn"]);
     
@@ -44,7 +56,7 @@ require_once './My_MySQLi.php';
 
                 } catch (Exception $ex) {
                     //oclc returns nothing or is unavailable
-                    echo 'requestHandler: Exception: oclc gibt nichts zurück.';
+                    echo 'requestHandler: Exception: oclc returns nothing.';
                     return;
 
                 }
@@ -54,7 +66,7 @@ require_once './My_MySQLi.php';
         } 
         
     } catch (Exception $ex) {
-        //Fehlermeldung ausgeben(?) - throw new Exception("Validation Error", 666);
+        //error message
         echo "requestHandler: ISBN Validation error!";
 
     }

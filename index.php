@@ -16,6 +16,11 @@ Kathrin Heim, BibInfo16 Abschlussaufgabe 1
 
         <script>
             
+            /**
+             * On page load, the entered ISBN is checked with validateISBN.js and jquery.validate.min.js (plugin)
+             * @returns error message if invalid ISBN
+             */
+            
             $(document).ready(function() {
                 
                 $.validator.addMethod("isbn", function(value, element) {
@@ -34,6 +39,15 @@ Kathrin Heim, BibInfo16 Abschlussaufgabe 1
                         }
                         
                     });
+                    
+            /**
+             * Ajax call on submit in ISBN form:
+             * requestHandler.php is called with ISBN input.
+             * On sucess, JSON response is parsed and record displayed (or error alert, if invalid/unknown ISBN).
+             * On complete, current date is displayed in footer.
+             * @param {type} submit event
+             * @returns JSON response, displayed as HTML
+             */
         
 
                 $('#myForm').submit(function(event){                   
@@ -70,7 +84,7 @@ Kathrin Heim, BibInfo16 Abschlussaufgabe 1
                             $('.publisher').html(data.list[0].publisher);
                             $('.city').html(data.list[0].city);                            
                             $('.url').html("<img src='icons/logo.png' alt='WorldCat' height='64'></br><a href="+
-                                    data.list[0].url+" target='_blank'>View record on Worldcat</a>");
+                                    data.list[0].url+" target='_blank'>View record on WorldCat</a>");
 
                         },
                         error: function(response) {
